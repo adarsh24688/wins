@@ -84,5 +84,5 @@ defined('EXIT_DATABASE')       OR define('EXIT_DATABASE', 8); // database error
 defined('EXIT__AUTO_MIN')      OR define('EXIT__AUTO_MIN', 9); // lowest automatically-assigned error code
 defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
 
-define('RAZORPAY_KEY_ID', 'rzp_test_PE88jPbfpmNqQ3'); //rzp_test_uWYhvcI1xAN6NA
-define('RAZORPAY_KEY_SECRET', 'D3ao61cHP4xL1HJXUktHnila'); //kKFne23dz9e5NGjdt0FUPKCW
+define('RAZORPAY_KEY_ID', 'rzp_test_WbHIDLAh2oV4Jf'); //rzp_test_uWYhvcI1xAN6NA
+define('RAZORPAY_KEY_SECRET', 'DTLbjhN5k46rDmrQvPssYiwO'); //kKFne23dz9e5NGjdt0FUPKCW

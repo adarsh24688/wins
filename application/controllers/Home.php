@@ -6,53 +6,25 @@ use Razorpay\Api\Errors\SignatureVerificationError;
 
 class Home extends CI_Controller {
 
-
-	public function getSoltOutCount($product_id){
-		// echo $product_id;
-		return $this->db->get_where('sold_tickets',array('product_id' => $product_id))->num_rows();
-	}
-
-	public function index()
-	{
-		
-        $data['products'] = $this->fetch_products_and_tickets();
+	public function index(){	
+        $data['products'] = $this->ModelCommon->fetch_products_and_tickets();
+        $data['user_id'] = $this->session->userdata('user_id');
+        $this->load->view('header',$data);
 		$this->load->view('index',$data);
+        $this->load->view('footer',$data);
 	}
 
 	public function loadView($id){
-		 $data['product'] = $this->fetch_product_and_ticket($id);
-		 $data['images'] = $this-> fetch_images($id);
-		 $data['products'] = $this->fetch_products_and_tickets();
+        $data['product'] = $this->ModelCommon->fetch_product_and_ticket($id);
+		 $data['images'] = $this->ModelCommon->fetch_images($id);
+		 $data['products'] = $this->ModelCommon->fetch_products_and_tickets();
 		 $x = $data['product']->sold_count;
 		 $total = $data['product']->ticket_count;
 		 $data['percentage'] = ($x*100)/$total;
-		 // echo $data['percentage'];
+         $data['user_id'] = $this->session->userdata('user_id');
+        $this->load->view('header',$data);
 		$this->load->view('product_view',$data);
-	}
-
-	private function fetch_product_and_ticket($product_id){
-		$this->load->database();
-		$this->db->select('*');
-        $this->db->from('products');
-        $this->db->join('tickets', 'products.id = tickets.product_id', 'left');
-        $this->db->where(['tickets.product_id' =>$product_id]);
-        return $this->db->get()->row();
-	}
-
-	private function fetch_products_and_tickets(){
-		$this->load->database();
-		$this->db->select('*');
-        $this->db->from('products');
-        $this->db->join('tickets', 'products.id = tickets.product_id', 'left');
-        return $this->db->get()->result();
-	}
-
-	private function fetch_images($product_id){
-		$this->load->database();
-		$this->db->select('*');
-        $this->db->from('images');
-        $this->db->where(['images.product_id' =>$product_id]);
-        return $this->db->get()->result();
+        $this->load->view('footer',$data);
 	}
 
 	public function loginUser(){
@@ -67,33 +39,116 @@ class Home extends CI_Controller {
 
 			$this->session->set_userdata($user_array);
 			// print_r($this->session->userdata());
-			redirect('index.php/Homes');
-		}
+			redirect('index.php/Home');
+		}else{
+            $this->session->set_flashdata('login_msg','Please try Again');
+            redirect('index.php/Home/loadPage/login');
+        }
 	}
 
 	public function registerUser(){
-		$username = $this->input->post('username');
-		$email = $this->input->post('email');
-		$password = $this->input->post('password');
-		$phone = $this->input->post('phone');
-		$data = array('user_name' => $username, 'email' => $email, 'password' => $password, 'phone'=> $phone);
-		$users = $this->db->insert('users', $data)->row();
-		if($this->db->affected_rows()>0){
-			redirect('index.php/Home/loadPage/login');
-		}
+        $config['upload_path'] = "./assets/images/users/";
+        $config['allowed_types'] = "png|jpg|jpeg";
+        $config['max_size'] = 100;
+        $this->load->library('upload',$config);
+
+        if($this->upload->do_upload('userfile')){
+            $img = $this->upload->data();
+            $image = $img['file_name'];
+            $username = $this->input->post('user_name');
+            $firstname = $this->input->post('first_name');
+            $lastname = $this->input->post('last_name');
+            $email = $this->input->post('email');
+            $password = $this->input->post('password');
+            $phone = $this->input->post('phone');
+            $data = array(
+                'user_name' => $username, 
+                'email' => $email, 
+                'password' => $password, 
+                'phone'=> $phone,
+                'first_name' => $firstname,
+                'last_name' => $lastname,
+                'image' => $image
+            );
+            $user_id = $this->ModelCommon->insertData('users',$data);
+            if($this->db->affected_rows()>0){
+                redirect('index.php/Home/loadPage/login');
+            }
+        }else{
+            echo 'error '.$this->upload->display_errors();
+        }		
 	}
+
+    public function UpdateUser(){
+        $firstname = $this->input->post('first_name');
+            $lastname = $this->input->post('last_name');
+            $email = $this->input->post('email');
+            $phone = $this->input->post('phone');
+            $data = array( 
+                'email' => $email,  
+                'phone'=> $phone,
+                'first_name' => $firstname,
+                'last_name' => $lastname,
+                'updated_date' => date('Y-m-d H:i:s')
+            );
+            $user_id = $this->ModelCommon->updateData('users',$data,array('id'=> $this->session->userdata('user_id')));
+            if($this->db->affected_rows()>0){
+                $this->session->set_flashdata('user_msg','Profile Updated');
+                redirect('index.php/Home/loadPage/user_profile');
+            }
+        // $config['upload_path'] = "./assets/images/users/";
+        // $config['allowed_types'] = "png|jpg|jpeg";
+        // $config['max_size'] = 100;
+        // $this->load->library('upload',$config);
+        // if($this->upload->do_upload('userfile')){
+        //     $img = $this->upload->data();
+        //     $image = $img['file_name'];
+        //     $firstname = $this->input->post('first_name');
+        //     $lastname = $this->input->post('last_name');
+        //     $email = $this->input->post('email');
+        //     $phone = $this->input->post('phone');
+        //     $data = array( 
+        //         'email' => $email,  
+        //         'phone'=> $phone,
+        //         'first_name' => $firstname,
+        //         'last_name' => $lastname,
+        //         'image' => $image
+        //     );
+        //     $user_id = $this->ModelCommon->updateData('users',$data,array('id'=> $this->session->userdata('user_id')));
+        //     if($this->db->affected_rows()>0){
+        //         redirect('index.php/Home/loadPage/user_profile');
+        //     }
+        // }else{
+        //     echo 'error '.$this->upload->display_errors();
+        // }
+    }
 
 	public function loadPage($page){
 		if($page === 'login' && $this->session->has_userdata('user_id')){
 			redirect(base_url('index.php/Home'));
 		}
-		$this->load->view($page);
+        elseif($page === 'user_profile'){
+            $data['tickets'] = $this->ModelCommon->fetchSoldTicketsWithProduct();
+            $data['count'] = $this->ModelCommon->countRow('sold_tickets',array('user_id'=>$this->session->userdata('user_id')));
+        }
+        elseif($page === 'winners'){
+            $data['winners'] = $this->ModelCommon->getWinners();
+        }
+
+        $data['user'] = $this->ModelCommon->getMyProfile();
+        $data['user_id'] = $this->session->userdata('user_id');
+        $this->load->view('header',$data);
+		$this->load->view($page,$data);
+        $this->load->view('footer');
+        // print_r($this->ModelCommon->getWinners());
 	}
 
 	public function checkUserLogin($id){
+        // echo gettype((int)$this->input->post('quantity'));die();
 		if($this->session->has_userdata('user_id')){
 			$tickets = $this->ModelCommon->getSingleData('tickets',array('product_id'=>$id));
 			if($tickets['sold_count'] !== $tickets['ticket_count']){
+                $this->session->set_userdata('quantity',$this->input->post('quantity'));
 				redirect('index.php/Home/makePaymentForTicket/'.$id);
 			}else{
 				redirect('index.php/Home');
@@ -102,15 +157,26 @@ class Home extends CI_Controller {
 		}else{
 			redirect('index.php/Home/loadPage/login');
 		}
+        // echo $this->input->post('quantity');
 	}
 
+    public function logout(){
+        $this->session->unset_userdata('user_id');
+        $this->session->unset_userdata('user_name');
+        // echo 'user_id : '.$this->session->userdata('user_id');
+        redirect('index.php/Home');
+    }
+
 	function makePaymentForTicket($id){
+                //userid from session
         		$member_id=$this->session->userdata('user_id');
-        		// echo 'user_id : '.$member_id.'<br>';
-		        $userDetails    = $this->ModelCommon->getMyProfile($member_id);
+        		//user detail from db
+		        $userDetails    = $this->ModelCommon->getMyProfile();
 		        // print_r($userDetails);die();
-		        // $payment_price=$this->ModelCommon->getPrice($id); //get price from db
-		        $payment_price = 1;
+                //price for ticket
+		        $payment_price=$this->ModelCommon->getPrice($id); //get price from db
+		        // $payment_price = 1;
+                $payment_price = $payment_price * (int)$this->session->userdata('quantity');
 		        // echo 'payment price : '.$payment_price.'<br>';die();
 
 		        $keyId = RAZORPAY_KEY_ID;
@@ -182,15 +248,12 @@ class Home extends CI_Controller {
                 ';
                	$data['html']=$html;
 	            $this->load->view('razorpay',$data);
-			
-
     }
 
     public function razorpayresponse(){
         $keyId = RAZORPAY_KEY_ID;
         $keySecret = RAZORPAY_KEY_SECRET;
         $amount=$this->session->userdata('amount');
-        // echo $amount;die();
         $success = true;
         $error = "Payment Failed";
         if (empty($_POST['razorpay_payment_id']) === false)
@@ -223,7 +286,6 @@ class Home extends CI_Controller {
             $ndata['payment_request_id'] = $_SESSION['razorpay_order_id'];
             $ndata['status']             = 'Paid';
             $ndata['signature']=$_POST['razorpay_signature'];
-            // print_r($ndata);die();
             $result=$this->ModelCommon->updateData('payment',$ndata,array('id'=>$this->session->userdata('razorpay_insert_id')));
 
             // print_r($result);echo $this->session->userdata('razorpay_insert_id');die();
@@ -243,18 +305,37 @@ class Home extends CI_Controller {
             // print_r($ticket);die();
             if($ticket['sold_count'] < $ticket['ticket_count']){
             	$ndata = array(
-            			'sold_count' => $ticket['sold_count']+1
+            			'sold_count' => $ticket['sold_count'] + (int)$this->session->userdata('quantity')
             	); 
             	// print_r($ticket);die();
             	$result=$this->ModelCommon->updateData('tickets',$ndata,array('id'=>$ticket['id']));
 
             }
-            $up_sold = array(
-            	'product_id' => $product_id,
-            	'user_id' => $this->session->userdata('user_id'),
-            	'token' => '#'.$this->random_strings(5)
-            );
-            $rs = $this->ModelCommon->insertData('sold_tickets',$up_sold);
+
+            $token_string = $this->random_strings(5);
+            $token_array = array();
+            //here goes the logic if quantity is greater than 1
+            //generating token for multiple quantity
+            //if its 1 then token with '#' => #token
+            // more than 1 
+            //#token, #token+1, #token+2......
+            for($i=0; $i<(int)$this->session->userdata('quantity');$i++){
+                if($i == 0){
+                    $token_array[] = '#'.$token_string;
+                }else{
+                    $token_array[] = '#'.$token_string.'+'.$i;
+                }
+                
+            }
+            
+            foreach($token_array as $token){
+                echo $token.'<br>';
+                $this->ModelCommon->insertData('sold_tickets',array(
+                     'product_id' => $product_id,
+                     'user_id' => $this->session->userdata('user_id'),
+                     'token' => $token
+                    ));
+            }
             $this->session->set_flashdata('payment_msg','Payment Is Successful. PLease chekc your Email');
             $this->session->unset_userdata('razorpay_payment_id');
             $this->session->unset_userdata('payment_method');
@@ -293,8 +374,9 @@ class Home extends CI_Controller {
 
     }
 
-    public function mailUser(){
-		    	//Load email library
+    public function mailUser()
+    {
+		//Load email library
 		$this->load->library('email');
 		 
 		//SMTP & mail configuration
@@ -344,7 +426,8 @@ class Home extends CI_Controller {
 	                       0, $length_of_string); 
 	} 
 
-	function token(){
+	function token()
+    {
 		echo "#".$this->random_strings(5)."  ".$this->random_strings(5)." ".$this->random_strings(5);
 	}
 	
