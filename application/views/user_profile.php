@@ -8,8 +8,7 @@
                                     <div class="row">
                                         <div class="col-lg-12 col-md-12">
                                             <div class="wideget-user-desc text-center">
-                                                <div class="wideget-user-img"> <img class="brround" src="<?php echo base_url('assets/images/users/'.$user->image);?>" alt="img"> </div>
-                                                <div class="user-wrap wideget-user-info"> <a href="#" class="text-white"><h4 class="font-weight-semibold"><?php echo $user->first_name.' '.$user->last_name; ?></h4></a>
+                                                <div class="user-wrap wideget-user-info"> <a href="#" class="text-white"><h4 class="font-weight-semibold"><?php echo $user->name?></h4></a>
                                                 </div>
                                             </div>
                                         </div>
@@ -49,7 +48,7 @@
                                                 <div class="media-heading">
                                                     <h3 class="card-title mb-3 font-weight-bold">Personal Details</h3> </div>
                                                 <ul class="usertab-list mb-0">
-                                                    <li><a href="#" class="text-dark"><span class="font-weight-semibold">Full Name :</span> <?php echo $user->first_name.' '.$user->last_name; ?></a></li>
+                                                    <li><a href="#" class="text-dark"><span class="font-weight-semibold">Name :</span> <?php echo $user->name?></a></li>
                                                     <li><a href="#" class="text-dark"><span class="font-weight-semibold">Email :</span> <?php echo $user->email; ?></a></li>
                                                     <li><a href="#" class="text-dark"><span class="font-weight-semibold">Phone :</span> <?php echo $user->phone; ?></a></li>
                                                     <li><a href="#" class="text-dark"><span class="font-weight-semibold">Email :</span> georgemestayer@Reallist.com</a></li>
@@ -62,13 +61,8 @@
                                         		<div class="row">
 	                                                <div class="col-sm-6 col-md-6">
 	                                                    <div class="form-group">
-	                                                        <label class="form-label">First Name</label>
-	                                                        <input type="text" value="<?php echo $user->first_name; ?>" name="first_name" class="form-control" placeholder="First Name"> </div>
-	                                                </div>
-	                                                <div class="col-sm-6 col-md-6">
-	                                                    <div class="form-group">
-	                                                        <label class="form-label">Last Name</label>
-	                                                        <input type="text" value="<?php echo $user->last_name; ?>" name="last_name" class="form-control" placeholder="Last Name"> </div>
+	                                                        <label class="form-label">Name</label>
+	                                                        <input type="text" value="<?php echo $user->name; ?>" name="name" class="form-control" placeholder="Name"> </div>
 	                                                </div>
 	                                                <div class="col-sm-6 col-md-6">
 	                                                    <div class="form-group">
@@ -77,18 +71,9 @@
 	                                                </div>
 	                                                <div class="col-sm-6 col-md-6">
 	                                                    <div class="form-group">
-	                                                        <label class="form-label">Phone Number</label>
+	                                                        <label class="form-label">Mobile Number</label>
 	                                                        <input type="number" value="<?php echo $user->phone; ?>" name="phone"  class="form-control" placeholder="Number"> </div>
 	                                                </div>
-	                                                <!-- <div class="col-md-12">
-	                                                    <div class="form-group">
-	                                                        <label class="form-label">Upload Image</label>
-	                                                        <div class="custom-file">
-	                                                            <input type="file" class="custom-file-input" value="<?php echo base_url('assets/images/users/'.$user->image); ?>" name="userfile">
-	                                                            <label class="custom-file-label">Choose file</label>
-	                                                        </div>
-	                                                    </div>
-	                                                </div> -->
 	                                                <div class="col-md-12">
 	                                                    <button type="submit" class="btn btn-primary">Update Profile</button>
 	                                                </div>

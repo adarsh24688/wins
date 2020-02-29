@@ -21,8 +21,8 @@ class ModelCommon extends CI_Model {
 		return $this->db->get_where($tbl_name,$where)->row_array();
 	}
 
-	public function getMultipleData($tbl_name,$where){
-		return $this->db->get_where($tbl_name,$where)->result();
+	public function getMultipleData($tbl_name){
+		return $this->db->get_where($tbl_name)->result();
 	}
 
 	public function deleteItem($tbl_name,$where){
