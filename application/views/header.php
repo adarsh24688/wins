@@ -26,16 +26,11 @@
     <link href="<?php echo base_url(); ?>assets/plugins/horizontal-menu/horizontal.css" rel="stylesheet">
     <!--Select2 Plugin -->
     <link href="<?php echo base_url(); ?>assets/plugins/select2/select2.min.css" rel="stylesheet">
-    <!-- Cookie css -->
-    <link href="<?php echo base_url(); ?>assets/plugins/cookie/cookie.css" rel="stylesheet">
-    <!-- Owl Theme css-->
+    
     <link href="<?php echo base_url(); ?>assets/plugins/owl-carousel/owl.carousel.css" rel="stylesheet">
     <!-- Custom scroll bar css-->
     <link href="<?php echo base_url(); ?>assets/plugins/scroll-bar/jquery.mCustomScrollbar.css" rel="stylesheet">
-    <!-- P-scroll bar css-->
-    <link href="<?php echo base_url(); ?>assets/plugins/pscrollbar/perfect-scrollbar.css" rel="stylesheet">
-    <!-- Switcher css -->
-    <link href="<?php echo base_url(); ?>assets/switcher/css/switcher.css" rel="stylesheet" id="switcher-css" type="text/css" media="all">
+   
     <!-- COLOR-SKINS -->
     <link id="theme" rel="stylesheet" type="text/css" media="all" href="<?php echo base_url(); ?>assets/skins/color-skins/color15.css">
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/skins/demo.css">
@@ -43,18 +38,26 @@
     <meta http-equiv="imagetoolbar" content="no">
 
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <!--[if gte IE 5]><frame></frame><![endif]-->
 </head>
 
 <body>
     <div class="horizontalMenucontainer">
-        <?php if(!empty($this->session->flashdata('payment_msg'))) {?>
-        <div class="alert alert-success">
-          <?php echo $this->session->flashdata('payment_msg');?>
-        </div>
+        <?php if($this->session->flashdata('payment_msg')) {?>
+                    <script type="text/javascript">
+                        Swal.fire({
+                          position: 'center',
+                          icon: 'success',
+                          title: '<?php echo $this->session->flashdata('payment_msg');?>',
+                          showConfirmButton: false,
+                          timer: 4000
+                        })
+                    </script>
         <?php }?>
         <!--Loader-->
-        <div id="global-loader" > <img src="<?php echo base_url();?>assets/images/loader.svg" class="loader-img" alt=""> </div>
+        <div id="global-loader" > <img src="" class="loader-img" alt=""> </div>
         <!--Topbar-->
         <div class="header-main">
             <div class="top-bar">

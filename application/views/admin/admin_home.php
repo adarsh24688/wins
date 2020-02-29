@@ -31,22 +31,22 @@
                     </div>
                 </div>
                 <?php if($this->session->flashdata('product_update_msg')) {?>
-                    <div class="container">
-                        <div class="row justify-content-center mt-1 text-center">
-                            <div class="alert alert-success col-lg-10">
-                                <?php echo $this->session->flashdata('product_update_msg');?>
-                            </div>
-                        </div>
-                    </div>
+                    <script type="text/javascript">
+                        Swal.fire(
+                          'Well Done',
+                          '<?php echo $this->session->flashdata('product_update_msg');?>',
+                          'success'
+                        )
+                    </script>
                     <?php }?>
                     <?php if($this->session->flashdata('product_insert_msg')) {?>
-                            <div class="container">
-                                <div class="row justify-content-center mt-1 text-center">
-                                    <div class="alert alert-success col-lg-10">
-                                        <?php echo $this->session->flashdata('product_insert_msg');?>
-                                    </div>
-                                </div>
-                            </div>
+                        <script type="text/javascript">
+                            Swal.fire(
+                              'Well Done',
+                              '<?php echo $this->session->flashdata('product_insert_msg');?>',
+                              'success'
+                            )
+                        </script>
                     <?php }?>
 
                                 <div class="card mb-0">

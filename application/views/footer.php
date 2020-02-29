@@ -88,9 +88,8 @@
 
         <script src="<?php echo base_url(); ?>assets/plugins/bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
         <!--JQuery RealEstaterkline Js-->
-        <script src="<?php echo base_url(); ?>assets/js/vendors/jquery.sparkline.min.js"></script>
-        <!-- Circle Progress Js-->
-        <script src="<?php echo base_url(); ?>assets/js/vendors/circle-progress.min.js"></script>
+      <!--  -->
+    
         <!-- Star Rating Js-->
         <script src="<?php echo base_url(); ?>assets/plugins/rating/jquery.rating-stars.js"></script>
         <!--ounters -->
@@ -109,19 +108,14 @@
         <!-- sticky Js-->
         <script src="<?php echo base_url(); ?>assets/js/sticky.js"></script>
         <!-- Cookie js -->
-        <script src="<?php echo base_url(); ?>assets/plugins/cookie/jquery.ihavecookies.js"></script>
-        <script src="<?php echo base_url(); ?>assets/plugins/cookie/cookie.js"></script>
+      <!--   <script src="<?php echo base_url(); ?>assets/plugins/cookie/jquery.ihavecookies.js"></script>
+        <script src="<?php echo base_url(); ?>assets/plugins/cookie/cookie.js"></script> -->
         <!-- Custom scroll bar Js-->
         <script src="<?php echo base_url(); ?>assets/plugins/scroll-bar/jquery.mCustomScrollbar.concat.min.js"></script>
         <!-- P-scroll bar Js-->
-        <script src="<?php echo base_url(); ?>assets/plugins/pscrollbar/perfect-scrollbar.js"></script>
-        <script src="<?php echo base_url(); ?>assets/plugins/pscrollbar/pscroll.js"></script>
-        <!-- Switcher js -->
+   <!--  -->
 
-        <script src="<?php echo base_url(); ?>assets/switcher/js/switcher.js"></script>
-        <script src="<?php echo base_url(); ?>assets/js/jquery.showmore.js"></script>
-        <script src="<?php echo base_url(); ?>assets/js/showmore.js"></script>
-        <script src="<?php echo base_url(); ?>assets/js/swipe.js"></script>
+     <!--  -->
         <script src="<?php echo base_url(); ?>assets/js/owl-carousel.js"></script>
         <!-- Custom Js-->
 

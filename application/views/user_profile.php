@@ -30,14 +30,14 @@
                                 </div>
                             </div>
                         </div>
-								<?php if(!empty($this->session->flashdata('user_msg'))) {?>
-								            <div class="container">
-								                <div class="row justify-content-center mt-1 text-center">
-								                    <div class="alert alert-success col-lg-4">
-								                      <?php echo $this->session->flashdata('user_msg');?>
-								                    </div>
-								                </div>
-								            </div>
+								<?php if($this->session->flashdata('user_msg')) {?>
+                                    <script type="text/javascript">
+                                        Swal.fire(
+                                          'Well Done',
+                                          '<?php echo $this->session->flashdata('user_msg');?>',
+                                          'success'
+                                        )
+                                    </script>
 								<?php }?>
 
                         <div class="card mb-0">

@@ -4,10 +4,10 @@
                 <div class="header-text mb-0">
                     <div class="container">
                         <div class="text-center text-white mb-7">
-                            <h1 class="mb-1">Find Your Best Property</h1>
+                            <h1 class="mb-1">Win Everything </h1>
                             <p>It is a long established fact that a reader will be distracted by the readable .</p>
                         </div>
-                        <div class="row">
+                       <!--  <div class="row">
                             <div class="col-xl-10 col-lg-12 col-md-12 d-block mx-auto">
                                 <div class="search-background bg-transparent">
                                     <div class="form row no-gutters ">
@@ -51,7 +51,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <!-- /header-text -->
@@ -118,7 +118,7 @@
                                                 <div class="card overflow-hidden">
                                                     <div class="item-card9-img">
                                                         <div class="arrow-ribbon bg-primary">&#x20b9; <?php echo $product->ticket_price;?></div>
-                                                        <div class="item-card9-imgs" style="width:412px;height:372px;"> <img src="<?php echo base_url('assets/images/products/'.$product->image);?>" alt="img" class="cover-image"> </div>
+                                                        <div class="item-card9-imgs" style="width:412px;height:412px"> <img src="<?php echo base_url('assets/images/products/'.$product->image);?>" alt="img" class="cover-image" > </div>
                                                     </div>
                                                     <div class="card-body">
                                                         <div class="item-card9"> <h4 class="font-weight-bold mt-1"><?php echo $product->product_name; ?> </h4>
@@ -131,7 +131,7 @@
                                                     <div class="item-card-btn-hover">
                                                         <div class="card-footer">
                                                             <div class="item-card9-footer d-flex">
-                                                                <div class="item-card9-cost"><span class="">Rs-<?php echo $product->ticket_price;?></span></div>
+                                                                <div class="item-card9-cost"><span class="">&#x20b9; <?php echo $product->ticket_price;?></span></div>
                                                             </div>
                                                         </div>
                                                         <div class="item-card-btn"> <a href="<?php echo base_url();?>index.php/Home/loadView/<?php echo $product->id ?>" class="btn btn-primary">View</a> </div>
@@ -142,7 +142,7 @@
                                                 <div class="card overflow-hidden">
                                                     <div class="item-card9-img">
                                                         <div class="arrow-ribbon bg-primary">&#x20b9; <?php echo $product->ticket_price;?></div>
-                                                        <div class="item-card9-imgs"> <img src="<?php echo base_url('assets/images/products/'.$product->image);?>" alt="img" class="cover-image"> </div>
+                                                        <div class="item-card9-imgs" style="width:412px;height:412px"> <img src="<?php echo base_url('assets/images/products/'.$product->image);?>" alt="img" class="cover-image"> </div>
                                                     </div>
                                                     <div class="card-body">
                                                         <div class="item-card9"> <h4 class="font-weight-bold mt-1"><?php echo $product->product_name; ?> </h4>
@@ -155,7 +155,7 @@
                                                     <div class="item-card-btn-hover">
                                                         <div class="card-footer">
                                                             <div class="item-card9-footer d-flex">
-                                                                <div class="item-card9-cost"><span class="">Rs-<?php echo $product->ticket_price;?></span></div>
+                                                                <div class="item-card9-cost"><span class="">&#x20b9; <?php echo $product->ticket_price;?></span></div>
                                                             </div>
                                                         </div>
                                                         <div class="item-card-btn"> <a href="<?php echo base_url();?>index.php/Home/loadView/<?php echo $product->id ?>" class="btn btn-primary">View</a> </div>

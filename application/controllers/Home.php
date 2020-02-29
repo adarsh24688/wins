@@ -71,6 +71,7 @@ class Home extends CI_Controller {
                 'image' => $image
             );
             $user_id = $this->ModelCommon->insertData('users',$data);
+            // echo $password;die();
             if($this->db->affected_rows()>0){
                 redirect('index.php/Home/loadPage/login');
             }
@@ -168,18 +169,19 @@ class Home extends CI_Controller {
     }
 
 	function makePaymentForTicket($id){
-                //userid from session
-        		$member_id=$this->session->userdata('user_id');
-        		//user detail from db
-		        $userDetails    = $this->ModelCommon->getMyProfile();
-		        // print_r($userDetails);die();
+        if($this->authenticateUserLogin()){
+            //userid from session
+                $member_id=$this->session->userdata('user_id');
+                //user detail from db
+                $userDetails    = $this->ModelCommon->getMyProfile();
+                // print_r($userDetails);die();
                 //price for ticket
-		        $payment_price=$this->ModelCommon->getPrice($id); //get price from db
-		        // $payment_price = 1;
+                $payment_price=$this->ModelCommon->getPrice($id); //get price from db
+                // $payment_price = 1;
                 $payment_price = $payment_price * (int)$this->session->userdata('quantity');
-		        // echo 'payment price : '.$payment_price.'<br>';die();
+                // echo 'payment price : '.$payment_price.'<br>';die();
 
-		        $keyId = RAZORPAY_KEY_ID;
+                $keyId = RAZORPAY_KEY_ID;
                 $keySecret = RAZORPAY_KEY_SECRET;
                 $displayCurrency = 'INR';
 
@@ -246,8 +248,12 @@ class Home extends CI_Controller {
 
                 </form>
                 ';
-               	$data['html']=$html;
-	            $this->load->view('razorpay',$data);
+                $data['html']=$html;
+                $this->load->view('razorpay',$data);
+        }else{
+            redirect('index.php/Home');
+        }
+                
     }
 
     public function razorpayresponse(){
@@ -336,10 +342,10 @@ class Home extends CI_Controller {
                      'token' => $token
                     ));
             }
-            $this->session->set_flashdata('payment_msg','Payment Is Successful. PLease chekc your Email');
+            $this->session->set_flashdata('payment_msg','Payment Is Successful. PLease check your Email');
             $this->session->unset_userdata('razorpay_payment_id');
             $this->session->unset_userdata('payment_method');
-            $this->session->set_userdata('succmsg','You have been successfully added money to your wallet');
+            // $this->session->set_userdata('succmsg','You have been successfully added money to your wallet');
 
          //    $params['member_id'] = $this->session->userdata('user_id');
 	        // $apiUrl =  API_URL.'getDeviceToken';
@@ -430,5 +436,13 @@ class Home extends CI_Controller {
     {
 		echo "#".$this->random_strings(5)."  ".$this->random_strings(5)." ".$this->random_strings(5);
 	}
+
+    private function authenticateUserLogin(){
+        if($this->session->has_userdata('user_id')){
+            return true;
+        }else{
+            return false;
+        }
+    }
 	
 }
