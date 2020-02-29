@@ -6,7 +6,7 @@ use Razorpay\Api\Errors\SignatureVerificationError;
 
 class Home extends CI_Controller {
 
-	public function index(){	
+	public function index(){
         $data['products'] = $this->ModelCommon->fetch_products_and_tickets();
         $data['user_id'] = $this->session->userdata('user_id');
         $this->load->view('header',$data);
