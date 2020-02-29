@@ -24,20 +24,8 @@
                                 <form id="login" class="card-body" tabindex="500" method="post" action="<?php echo base_url();?>index.php/Home/registerUser" enctype="multipart/form-data">
                                     <h3>Register</h3>
                                     <div class="form-group">
-                                        <label class="form-label">First Name</label>
+                                        <label class="form-label">Name</label>
                                         <input type="text" class="form-control" placeholder="First Name"name="first_name">
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="form-label">Last Name</label>
-                                        <input type="text" class="form-control" placeholder="Last Name"name="last_name">
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="form-label">User Name</label>
-                                        <input type="text" class="form-control" placeholder="User Name" name="user_name">
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="form-label">Password</label>
-                                        <input type="password" class="form-control" placeholder="Password"name="password">
                                     </div>
                                     <div class="form-group">
                                         <label class="form-label">Email</label>
@@ -47,14 +35,14 @@
                                         <label class="form-label">Phone</label>
                                         <input type="text" class="form-control" placeholder="Phone" name="phone">
                                     </div>
-                                     <div class="form-group">
-                                        <label class="form-label">Upload Image</label>
-                                            <div class="custom-file">
-                                                <input type="file" class="custom-file-input" name="userfile">
-                                                <label class="custom-file-label">Choose file</label>
-                                            </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Password</label>
+                                        <input type="password" class="form-control" placeholder="Password"name="password">
                                     </div>
-                                    
+                                    <select class="form-control" id="states" name="state">
+                                        <option value="mp">Madhya Pradesh</option>
+                                        <option value="up">Utter Pradesh</option>
+                                    </select>
                                     <div class="submit"> <button class="btn btn-primary btn-block" type="submit">Register</button> </div>
                                     <p class="mb-2"><a href="forgot.html">Forgot Password</a></p>
                                     <p class="text-dark mb-0">Don't have account?<a href="register.html" class="text-primary ml-1">Sign UP</a></p>
