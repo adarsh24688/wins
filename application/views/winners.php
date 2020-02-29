@@ -22,7 +22,7 @@
                                                                 <td>
                                                                     <div class="media mt-0 mb-0">
                                                                         <div class="card-aside-img">
-                                                                            <a href="<?php echo base_url('index.php/Home/loadView/'.$winner->id); ?>"></a> <img src="<?php echo base_url($winner->image);?>" alt="img"> </div>
+                                                                            <a href="<?php echo base_url('index.php/Home/loadView/'.$winner->id); ?>"></a> <img src="<?php echo base_url('assets/images/products/'.$winner->image);?>" alt="img"> </div>
                                                                         <div class="media-body">
                                                                             <div class="card-item-desc ml-4 p-0 mt-2"> <a href="<?php echo base_url('index.php/Home/loadView/'.$winner->id); ?>" class="text-dark"><h4 class=""><?php echo $winner->product_name; ?></h4></a></div>
                                                                         </div>

@@ -81,7 +81,7 @@ class Admin extends CI_Controller {
 	    	'updated_date' => date('Y-m-d')
 	    );
 	    $this->ModelCommon->updateData('tickets',$tdata,array('id'=>$product_id));
-	    $this->session->set_flashdata('product_update_msg','Product Edited Successfully');
+	    $this->session->set_flashdata('product_update_msg','Product Updated Successfully');
 	    redirect('index.php/Admin');
 	}
 

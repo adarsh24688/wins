@@ -1,6 +1,7 @@
- .bg-background2:before {
+/* .bg-background2:before {
     background:linear-gradient(-349deg, rgba(0, 176, 255, 0.65) 48%, rgba(197, 8, 8, 0.8) 100%);
-}
+  
+}*/
  .pattern:before{
 	background:linear-gradient(-349deg, rgba(0, 176, 255, 0.65) 48%, rgba(197, 8, 8, 0.8) 100%);
 }
@@ -862,9 +863,9 @@
  .bg-background:before {
 	background: linear-gradient(-349deg, rgba(0, 176, 255, 0.65) 48%, rgba(197, 8, 8, 0.8) 100%);
 }
- .bg-background2:before {
-	background:linear-gradient(-349deg, rgba(0, 176, 255, 0.65) 48%, rgba(197, 8, 8, 0.8) 100%);
-}
+/* .bg-background2:before {
+	
+}*/
  .bg-background-color:before {
 	background:linear-gradient(-349deg, rgba(0, 176, 255, 0.65) 48%, rgba(197, 8, 8, 0.8) 100%);
 }
@@ -1117,11 +1118,11 @@
 }
 @media (min-width:992px) {
 	.sticky-wrapper.is-sticky .horizontal-main {
-		background: #004272;
+		background: black;
 	}
 }
 .horizontal-main{
-	background: #004272;
+/*	background: black;*/
 }
 .bg-card-light:hover {
     border-color: #00b0ff;
@@ -1149,7 +1150,7 @@
 	}
 }
 .sticky-wrapper.absolute.banners .horizontal-main:after {
-	 background: #00b0ff;
+/*	 background: #00b0ff;*/
 }
 .sticky-wrapper.absolute.banners .horizontalMenu>.horizontalMenu-list>li:hover>a {
   background-color: #00b0ff;
@@ -1232,7 +1233,7 @@ a:hover {
 }
 @media (min-width:992px) {
 	.sticky-wrapper.is-sticky .horizontal-main:after {
-		background: #00b0ff;
+		/*background: #00b0ff;*/
 	}
 	.sticky-wrapper.is-sticky .horizontalMenu>.horizontalMenu-list>li>a.active {
 		background-color: #00b0ff;

@@ -1,5 +1,11 @@
  .bg-background2:before {
-    background:linear-gradient(-225deg, rgba(74, 61, 184, 0.8) 48%, rgba(50, 228, 179, 0.8) 100%);
+ 	/*background: url('http://localhost/wins/assets/images/banners/407.jpg');
+ 	width: 46px;*/
+ 	background: #333333;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #dd1818, #333333);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #dd1818, #333333); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+   /* background:linear-gradient(-225deg, rgba(74, 61, 184, 0.8) 48%, rgba(50, 228, 179, 0.8) 100%);*/
 }
  .pattern:before{
 	background:linear-gradient(-225deg, rgba(74, 61, 184, 0.8) 48%, rgba(50, 228, 179, 0.8) 100%);
@@ -871,9 +877,9 @@
  .bg-background:before {
 	background: linear-gradient(-225deg, rgba(74, 61, 184, 0.8) 48%, rgba(50, 228, 179, 0.8) 100%);
 }
- .bg-background2:before {
+/* .bg-background2:before {
 	background:linear-gradient(-225deg, rgba(74, 61, 184, 0.8) 48%, rgba(50, 228, 179, 0.8) 100%);
-}
+}*/
  .bg-background-color:before {
 	background:linear-gradient(-225deg, rgba(74, 61, 184, 0.8) 48%, rgba(50, 228, 179, 0.8) 100%);
 }
@@ -1129,12 +1135,12 @@
 }
 @media (min-width:992px) {
 	.sticky-wrapper.is-sticky .horizontal-main {
-		background: #004272;
+		background:#000000;
 	}
 }
-.horizontal-main{
-	background: #004272;
-}
+/*.horizontal-main{
+	background: #000000;
+}*/
 .bg-card-light:hover {
     border-color: #ed5151;
 }
