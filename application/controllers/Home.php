@@ -172,11 +172,6 @@ class Home extends CI_Controller {
             $this->load->view('footer');
         }
 
-        $data['user'] = $this->ModelCommon->getMyProfile();
-        $data['user_id'] = $this->session->userdata('user_id');
-        $this->load->view('header',$data);
-		$this->load->view($page,$data);
-        $this->load->view('footer');
         // print_r($this->ModelCommon->getWinners());
 	}
 
