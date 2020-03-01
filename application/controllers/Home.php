@@ -39,15 +39,15 @@ class Home extends CI_Controller {
 	}
 
 	public function loginUser(){
-		$username = $this->input->post('username');
+		$username = $this->input->post('phone');
         $password = $this->input->post('password');
         $product_id = $_GET['prod'];
         $product_qty = $_GET['qty'];
-		$query = $this->db->get_where('users',array('user_name' => $username, 'password' => $password));
+		$query = $this->db->get_where('users',array('phone' => $username, 'password' => $password));
 		if($query->num_rows() == 1){
 			$user_array=array(
 				'user_id' => $query->row()->id,
-				'user_name' => $username
+				'name' => $username
 			);
 
 			$this->session->set_userdata($user_array);
@@ -64,49 +64,47 @@ class Home extends CI_Controller {
 	}
 
 	public function registerUser(){
-        $config['upload_path'] = "./assets/images/users/";
-        $config['allowed_types'] = "png|jpg|jpeg";
-        $config['max_size'] = 100;
-        $this->load->library('upload',$config);
-
-        if($this->upload->do_upload('userfile')){
-            $img = $this->upload->data();
-            $image = $img['file_name'];
-            $username = $this->input->post('user_name');
-            $firstname = $this->input->post('first_name');
-            $lastname = $this->input->post('last_name');
+        $this->load->library('form_validation');
+        $this->form_validation->set_rules('phone','Phone','min_length[10]|max_length[10]|is_unique[users.phone]|numeric');
+        $this->form_validation->set_rules('name','Name','regex_match[/^[a-zA-Z ]*$/]');
+        $this->form_validation->set_message('regex_match','{field} Should contain Alphabets only');
+        if ($this->form_validation->run() == TRUE){
+            $name = $this->input->post('name');
             $email = $this->input->post('email');
             $password = $this->input->post('password');
             $phone = $this->input->post('phone');
+            $state = (int)$this->input->post('state');
+            $address = $this->input->post('address');
             $data = array(
-                'user_name' => $username, 
+                'name' => $name, 
                 'email' => $email, 
                 'password' => $password, 
                 'phone'=> $phone,
-                'first_name' => $firstname,
-                'last_name' => $lastname,
-                'image' => $image
+                'address' => $address,
+                'state_id' => $state
             );
             $user_id = $this->ModelCommon->insertData('users',$data);
             // echo $password;die();
             if($this->db->affected_rows()>0){
+                if($this->session->has_userdata('error')){
+                    $this->session->unset_userdata('error');
+                }
                 redirect('index.php/Home/loadPage/login');
-            }
+            }	
         }else{
-            echo 'error '.$this->upload->display_errors();
-        }		
+            $data['states'] = $this->ModelCommon->getMultipleData('state');
+            $this->load->view('register',$data);
+        }
 	}
 
     public function UpdateUser(){
-        $firstname = $this->input->post('first_name');
-            $lastname = $this->input->post('last_name');
+        $name = $this->input->post('name');
             $email = $this->input->post('email');
             $phone = $this->input->post('phone');
             $data = array( 
                 'email' => $email,  
                 'phone'=> $phone,
-                'first_name' => $firstname,
-                'last_name' => $lastname,
+                'name' => $name,
                 'updated_date' => date('Y-m-d H:i:s')
             );
             $user_id = $this->ModelCommon->updateData('users',$data,array('id'=> $this->session->userdata('user_id')));
@@ -161,12 +159,21 @@ class Home extends CI_Controller {
         }
         elseif($page === 'winners'){
             $data['winners'] = $this->ModelCommon->getWinners();
+        }elseif($page === 'register'){
+            $data['states'] = $this->ModelCommon->getMultipleData('state');
+            $this->load->view($page,$data);
+        }
+        // print_r($data);die();
+        if($page !== 'register'){
+            $data['user'] = $this->ModelCommon->getMyProfile();
+            $data['user_id'] = $this->session->userdata('user_id');
+            $this->load->view('header',$data);
+            $this->load->view($page,$data);
+            $this->load->view('footer');
         }
 
         $data['user'] = $this->ModelCommon->getMyProfile();
         $data['user_id'] = $this->session->userdata('user_id');
-        // $data['productId'] = $product_id;
-        // $data['productQty'] = $product_qty;
         $this->load->view('header',$data);
 		$this->load->view($page,$data);
         $this->load->view('footer');
@@ -256,7 +263,7 @@ class Home extends CI_Controller {
                     "description"       => "",
                     "image"             => "",
                     "prefill"           => [
-                        "name"              => $userDetails->user_name,
+                        "name"              => $userDetails->name,
                         "email"             => $userDetails->email,
                         "contact"           => $userDetails->phone,
                     ]            ,
@@ -487,6 +494,11 @@ class Home extends CI_Controller {
         }else{
             return false;
         }
+    }
+
+    public function clearError(){
+        $this->session->unset_userdata('error');
+        json_encode(1);
     }
 	
 }

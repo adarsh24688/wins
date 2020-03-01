@@ -42,8 +42,8 @@
                                 <?php } ?>
                                     <h3>Login</h3>
                                     <div class="mail">
-                                        <input type="text" name="username" autocomplete="off">
-                                        <label>Username</label>
+                                        <input type="text" name="phone" autocomplete="off">
+                                        <label>Mobile Number</label>
                                     </div>
                                     <div class="passwd">
                                         <input type="password" name="password">
@@ -52,22 +52,8 @@
                                     
                                     <div class="submit"> <button class="btn btn-primary btn-block" type="submit">Login</button> </div>
                                     <p class="mb-2"><a href="forgot.html">Forgot Password</a></p>
-                                    <p class="text-dark mb-0">Don't have account?<a href="register.html" class="text-primary ml-1">Sign UP</a></p>
+                                    <p class="text-dark mb-0">Don't have account?<a href="<?php echo  base_url('index.php/Home/loadPage/register'); ?>" class="text-primary ml-1">Sign UP</a></p>
                                 </form>
-                                <hr class="divider">
-                                <div class="card-body">
-                                    <div class="text-center">
-                                        <div class="btn-group">
-                                            <a href="https://www.facebook.com/" class="btn btn-icon mr-2 brround"> <span class="fa fa-facebook"></span> </a>
-                                        </div>
-                                        <div class="btn-group">
-                                            <a href="https://www.google.com/gmail/" class="btn  mr-2 btn-icon brround"> <span class="fa fa-google"></span> </a>
-                                        </div>
-                                        <div class="btn-group">
-                                            <a href="https://twitter.com/" class="btn  btn-icon brround"> <span class="fa fa-twitter"></span> </a>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>

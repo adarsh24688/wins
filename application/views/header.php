@@ -44,6 +44,7 @@
 </head>
 
 <body>
+    
     <div class="horizontalMenucontainer">
         <?php if($this->session->flashdata('payment_msg')) {?>
                     <script type="text/javascript">
