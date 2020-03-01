@@ -35,7 +35,11 @@
                     <div class="single-page">
                         <div class="col-lg-5 col-xl-4 col-md-6 d-block mx-auto">
                             <div class="wrapper wrapper2">
-                                <form id="login" class="card-body" tabindex="500" method="post" action="<?php echo base_url();?>index.php/Home/loginUser" autocomplete="off">
+                                <?php if (isset($productId) && isset($productQty)) {?>
+                                    <form id="login" class="card-body" tabindex="500" method="post" action="<?php echo base_url();?>index.php/Home/loginUser?prod=<?php echo $productId ?>&qty=<?php echo $productQty ?>" autocomplete="off">
+                                <?php } else { ?>
+                                    <form id="login" class="card-body" tabindex="500" method="post" action="<?php echo base_url();?>index.php/Home/loginUser" autocomplete="off">
+                                <?php } ?>
                                     <h3>Login</h3>
                                     <div class="mail">
                                         <input type="text" name="username" autocomplete="off">

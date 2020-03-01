@@ -7,6 +7,9 @@ use Razorpay\Api\Errors\SignatureVerificationError;
 class Home extends CI_Controller {
 
 	public function index(){
+        if ($this->session->has_userdata('paymentStarted')) {
+            $this->session->unset_userdata('paymentStarted');
+        }
         $data['products'] = $this->ModelCommon->fetch_products_and_tickets();
         $data['user_id'] = $this->session->userdata('user_id');
         $this->load->view('header',$data);
@@ -15,6 +18,9 @@ class Home extends CI_Controller {
 	}
 
 	public function loadView($id){
+        if ($this->session->has_userdata('paymentStarted')) {
+            $this->session->unset_userdata('paymentStarted');
+        }
         $data['product'] = $this->ModelCommon->fetch_product_and_ticket($id);
 		 $data['images'] = $this->ModelCommon->fetch_images($id);
 		 $data['products'] = $this->ModelCommon->fetch_products_and_tickets();
@@ -22,6 +28,11 @@ class Home extends CI_Controller {
 		 $total = $data['product']->ticket_count;
 		 $data['percentage'] = ($x*100)/$total;
          $data['user_id'] = $this->session->userdata('user_id');
+         if (isset($_GET['qty'])) {
+             $data['quantity'] = $_GET['qty'];
+         } else {
+             $data['quantity'] = 1;
+         }
         $this->load->view('header',$data);
 		$this->load->view('product_view',$data);
         $this->load->view('footer',$data);
@@ -29,7 +40,9 @@ class Home extends CI_Controller {
 
 	public function loginUser(){
 		$username = $this->input->post('username');
-		$password = $this->input->post('password');
+        $password = $this->input->post('password');
+        $product_id = $_GET['prod'];
+        $product_qty = $_GET['qty'];
 		$query = $this->db->get_where('users',array('user_name' => $username, 'password' => $password));
 		if($query->num_rows() == 1){
 			$user_array=array(
@@ -38,8 +51,12 @@ class Home extends CI_Controller {
 			);
 
 			$this->session->set_userdata($user_array);
-			// print_r($this->session->userdata());
-			redirect('index.php/Home');
+            // print_r($this->session->userdata());
+            if (isset($_GET['prod']) && isset($_GET['qty'])) {
+                redirect('index.php/Home/loadView/'.$_GET['prod'].'?qty='.$_GET['qty']);
+            } else {
+                redirect('index.php/Home');
+            }
 		}else{
             $this->session->set_flashdata('login_msg','Please try Again');
             redirect('index.php/Home/loadPage/login');
@@ -125,6 +142,16 @@ class Home extends CI_Controller {
     }
 
 	public function loadPage($page){
+        if (isset($_GET['prod'])) {
+            $product_id = $_GET['prod'];
+            $data['productId'] = $product_id;
+        }    
+
+        if (isset($_GET['qty'])) {
+            $product_qty = $_GET['qty'];
+            $data['productQty'] = $product_qty;
+        }    
+
 		if($page === 'login' && $this->session->has_userdata('user_id')){
 			redirect(base_url('index.php/Home'));
 		}
@@ -138,6 +165,8 @@ class Home extends CI_Controller {
 
         $data['user'] = $this->ModelCommon->getMyProfile();
         $data['user_id'] = $this->session->userdata('user_id');
+        // $data['productId'] = $product_id;
+        // $data['productQty'] = $product_qty;
         $this->load->view('header',$data);
 		$this->load->view($page,$data);
         $this->load->view('footer');
@@ -146,17 +175,19 @@ class Home extends CI_Controller {
 
 	public function checkUserLogin($id){
         // echo gettype((int)$this->input->post('quantity'));die();
+        $productQuantity = $this->input->post('quantity');
 		if($this->session->has_userdata('user_id')){
 			$tickets = $this->ModelCommon->getSingleData('tickets',array('product_id'=>$id));
 			if($tickets['sold_count'] !== $tickets['ticket_count']){
                 $this->session->set_userdata('quantity',$this->input->post('quantity'));
+                $this->session->set_userdata('paymentStarted', true);
 				redirect('index.php/Home/makePaymentForTicket/'.$id);
 			}else{
 				redirect('index.php/Home');
 			}
 			
 		}else{
-			redirect('index.php/Home/loadPage/login');
+			redirect('index.php/Home/loadPage/login?prod='.$id.'&qty='.$productQuantity);
 		}
         // echo $this->input->post('quantity');
 	}
@@ -169,6 +200,15 @@ class Home extends CI_Controller {
     }
 
 	function makePaymentForTicket($id){
+        if (!$this->session->userdata('paymentStarted')) {
+            if ($id) {
+                redirect('index.php/Home/loadView/'.$id);
+            } else {
+                redirect('index.php/Home');
+            }
+            return;
+        }
+
         if($this->authenticateUserLogin()){
             //userid from session
                 $member_id=$this->session->userdata('user_id');
@@ -252,6 +292,10 @@ class Home extends CI_Controller {
                 $this->load->view('razorpay',$data);
         }else{
             redirect('index.php/Home');
+        }
+
+        if ($this->session->has_userdata('paymentStarted')) {
+            $this->session->unset_userdata('paymentStarted');
         }
                 
     }
@@ -377,7 +421,7 @@ class Home extends CI_Controller {
            	$this->session->set_userdata('succmsg','You have been successfully added money to your wallet');
 			redirect(base_url('index.php/Home'));
         }
-
+        $this->session->unset_userdata('paymentStarted');
     }
 
     public function mailUser()
