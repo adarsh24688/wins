@@ -57,6 +57,17 @@
                         })
                     </script>
         <?php }?>
+        <?php if($this->session->flashdata('registered')) {?>
+                    <script type="text/javascript">
+                        Swal.fire({
+                          position: 'center',
+                          icon: 'success',
+                          title: '<?php echo $this->session->flashdata('registered');?>',
+                          showConfirmButton: false,
+                          timer: 4000
+                        })
+                    </script>
+        <?php }?>
         <!--Loader-->
         <div id="global-loader" > <img src="" class="loader-img" alt=""> </div>
         <!--Topbar-->
@@ -115,15 +126,13 @@
                 </div>
             </div>
             <!-- Duplex Houses Header -->
-            <div class="horizontal-header clearfix ">
-                <div class="container"> <a id="horizontal-navtoggle" class="animated-arrow"><span></span></a> <span class="smllogo"><img src="<?php echo base_url(); ?>assets/images/brand/logo.png" width="120" alt=""></span> <a href="tel:245-6325-3256" class="callusbtn"><i class="fa fa-phone" aria-hidden="true"></i></a> </div>
-            </div>
+            
             <!-- /Duplex Houses Header -->
             <div id="sticky-wrapper" class="sticky-wrapper" style="height: 64px;">
                 <div class="horizontal-main bg-dark-transparent clearfix" style="width: 1344px;">
                     <div class="horizontal-mainwrapper container clearfix">
                         <div class="desktoplogo">
-                            <a href="index.html"><img src="<?php echo base_url(); ?>assets/images/brand/logo1.png" alt=""></a>
+                            <a href="<?php echo base_url(); ?>"><img src="<?php echo base_url(); ?>assets/images/brand/logo1.png" alt=""></a>
                         </div>
                         <div class="desktoplogo-1">
                             <a href="index.html"><img src="<?php echo base_url(); ?>assets/images/brand/logo1.png" alt=""></a>
@@ -132,11 +141,11 @@
                         <nav class="horizontalMenu clearfix d-md-flex">
                             <div class="overlapblackbg"></div>
                             <ul class="horizontalMenu-list">
-                                <li aria-haspopup="true"><span class="horizontalMenu-click"><i class="horizontalMenu-arrow fa fa-angle-down"></i></span><a href="<?php echo base_url(); ?>" class="active">Home</a>
+                                <li aria-haspopup="true"><a href="<?php echo base_url(); ?>">Home</a>
                                 </li>
-                                <li aria-haspopup="true"><a href="about.html">About Us </a></li>
+                                <li aria-haspopup="true"><a href="<?php echo base_url('index.php/Home/loadPage/about'); ?>">About Us </a></li>
                                 <li aria-haspopup="true"><a href="<?php echo base_url('index.php/Home/loadPage/winners'); ?>"> Winners <span class="hmarrow"></span></a></li>
-                                <li aria-haspopup="true"><a href="contact.html"> Contact Us <span class="hmarrow"></span></a></li>
+                                <li aria-haspopup="true"><a href="<?php echo base_url('index.php/Home/loadPage/howToPlay'); ?>">How To Play </a></li>
                             </ul>
                             <ul class="mb-0">
                                 <li aria-haspopup="true" class="mt-3 d-none d-lg-block top-postbtn"> <span><a class="btn btn-secondary ad-post " href="ad-posts.html">Post Property Ad</a></span> </li>

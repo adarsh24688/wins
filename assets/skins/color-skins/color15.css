@@ -23,6 +23,9 @@
 }
   .bg-background-color:before {
     background:linear-gradient(-349deg, rgba(0, 176, 255, 0.65) 48%, rgba(197, 8, 8, 0.8) 100%) !important;
+    /*background: #333333;*/ /* fallback for old browsers */
+  /*background: -webkit-linear-gradient(to top, #333333, #dd1818);*/ /* Chrome 10-25, Safari 5.1-6 */
+  /*background: linear-gradient(to top, #333333, #dd1818) !important;*/ /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
   .bg-dark-purple {
     background-color: #0b0c19 !important;

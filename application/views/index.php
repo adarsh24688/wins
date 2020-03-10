@@ -1,6 +1,6 @@
         <!--Sliders Section-->
         <section>
-            <div class="banner-1 cover-image sptb-2 sptb-tab bg-background2"   style="background: url('assets/images/banners/banner4.jpg') center center;">
+            <div class="banner-1 cover-image sptb-2 sptb-tab bg-background2"   style="background: url('<?php echo base_url(); ?>assets/images/aboutUs-banner-img.jpg') center center;">
                 <div class="header-text mb-0">
                     <div class="container">
                         <div class="text-center text-white mb-7">
@@ -58,7 +58,7 @@
             </div>
         </section>
         <!--Sliders Section-->
-        <section class="categories">
+        <!-- <section class="categories">
         	<div class="container">
                 <div class="card mb-0 box-shadow-0">
                     <div class="card-body">
@@ -103,7 +103,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
         <!-- End Categories-->
         <section class="sptb">
 	        <div class="container">
@@ -118,7 +118,7 @@
                                                 <div class="card overflow-hidden">
                                                     <div class="item-card9-img">
                                                         <div class="arrow-ribbon bg-primary">&#x20b9; <?php echo $product->ticket_price;?></div>
-                                                        <div class="item-card9-imgs" style="width:412px;height:412px"> <img src="<?php echo base_url('assets/images/products/'.$product->image);?>" alt="img" class="cover-image" > </div>
+                                                        <div class="item-card9-imgs" style="height:340px"> <img src="<?php echo base_url('assets/images/products/'.$product->image);?>" alt="img" class="cover-image" style="height:100%"> </div>
                                                     </div>
                                                     <div class="card-body">
                                                         <div class="item-card9"> <h4 class="font-weight-bold mt-1"><?php echo $product->product_name; ?> </h4>
@@ -131,7 +131,7 @@
                                                     <div class="item-card-btn-hover">
                                                         <div class="card-footer">
                                                             <div class="item-card9-footer d-flex">
-                                                                <div class="item-card9-cost"><span class="">&#x20b9; <?php echo $product->ticket_price;?></span></div>
+                                                                <div class="item-card9-cost"><span class="">&#x20b9; <b><?php echo $product->ticket_price;?></b></span></div>
                                                             </div>
                                                         </div>
                                                         <div class="item-card-btn"> <a href="<?php echo base_url();?>index.php/Home/loadView/<?php echo $product->id ?>" class="btn btn-primary">View</a> </div>
@@ -142,7 +142,7 @@
                                                 <div class="card overflow-hidden">
                                                     <div class="item-card9-img">
                                                         <div class="arrow-ribbon bg-primary">&#x20b9; <?php echo $product->ticket_price;?></div>
-                                                        <div class="item-card9-imgs" style="width:412px;height:412px"> <img src="<?php echo base_url('assets/images/products/'.$product->image);?>" alt="img" class="cover-image"> </div>
+                                                        <div class="item-card9-imgs" style="height:340px"> <img src="<?php echo base_url('assets/images/products/'.$product->image);?>" alt="img" class="cover-image" style="height:100%"> </div>
                                                     </div>
                                                     <div class="card-body">
                                                         <div class="item-card9"> <h4 class="font-weight-bold mt-1"><?php echo $product->product_name; ?> </h4>
@@ -155,7 +155,7 @@
                                                     <div class="item-card-btn-hover">
                                                         <div class="card-footer">
                                                             <div class="item-card9-footer d-flex">
-                                                                <div class="item-card9-cost"><span class="">&#x20b9; <?php echo $product->ticket_price;?></span></div>
+                                                                <div class="item-card9-cost"><span class="">&#x20b9; <b><?php echo $product->ticket_price;?></b></span></div>
                                                             </div>
                                                         </div>
                                                         <div class="item-card-btn"> <a href="<?php echo base_url();?>index.php/Home/loadView/<?php echo $product->id ?>" class="btn btn-primary">View</a> </div>
@@ -168,4 +168,35 @@
 	        	</div>
 	        </div>
 		</section>
+
+        <!--  -->
+        <section class="sptb">
+            <div class="about-1 cover-image sptb bg-background-color" data-image-src="assets/images/banners/banner5.jpg" style="background: url('assets/images/banners/banner5.jpg') center center;">
+                <div class="content-text mb-0 text-white info">
+                    <div class="container">
+                        <div class="row text-center">
+                            <div class="col-lg-4 col-md-6">
+                                <div class="counter-status md-mb-0">
+                                    <div class="counter-icon"> <i class="icon icon-people"></i> </div>
+                                    <h5>Contents</h5>
+                                    <h2 class="counter mb-0 font-weight-bold">34</h2> </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <div class="counter-status status-1 md-mb-0">
+                                    <div class="counter-icon text-warning"> <i class="icon icon-rocket"></i> </div>
+                                    <h5>Winners</h5>
+                                    <h2 class="counter mb-0 font-weight-bold">32</h2> </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <div class="counter-status status-1 md-mb-0">
+                                    <div class="counter-icon text-warning"> <i class="icon icon-rocket"></i> </div>
+                                    <h5>Winners</h5>
+                                    <h2 class="counter mb-0 font-weight-bold">32</h2> </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--  -->
         

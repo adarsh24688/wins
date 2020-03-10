@@ -14,6 +14,7 @@
                                                         <tr>
                                                             <th>Product</th>
                                                             <th>Name</th>
+                                                            <th>City</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -28,7 +29,8 @@
                                                                         </div>
                                                                     </div>
                                                                 </td>
-                                                                <td><?php echo $winner->first_name.' '.$winner->last_name; ?></td>
+                                                                <td><?php echo $winner->name;?></td>
+                                                                <td>Indore</td>
                                                             </tr>
                                                         <?php endforeach; ?>
                                                     </tbody>

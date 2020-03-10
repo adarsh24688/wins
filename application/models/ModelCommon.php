@@ -35,6 +35,7 @@ class ModelCommon extends CI_Model {
 		return true;
 	}
 	public function fetchSoldTicketsWithProduct(){
+		$this->db->order_by('products.id','DESC');
 		$this->db->select('*');
         $this->db->from('products');
         $this->db->join('sold_tickets', 'products.id = sold_tickets.product_id', 'left');
@@ -45,6 +46,11 @@ class ModelCommon extends CI_Model {
 	public function countRow($tbl_name,$check){
 		$query = $this->db->get_where($tbl_name,$check);
 		return $query->num_rows();
+	}
+
+	public function fetchTicketValue(){
+		$result = $this->db->get('ticket_number')->row();
+		return $result->value;
 	}
 
 	public function fetch_product_and_ticket($product_id){
@@ -71,10 +77,15 @@ class ModelCommon extends CI_Model {
 	}
 
 	public function getWinners(){
-		$this->db->select('products.id,products.product_name,products.image,users.first_name,users.last_name');
+		$this->db->select('products.id,products.product_name,products.image,users.name');
         $this->db->from('winers');
         $this->db->join('products', 'products.id = winers.product_id', 'left');
         $this->db->join('users', 'users.id = winers.user_id', 'left');
 		return  $this->db->get()->result();
+	}
+
+	public function checkProductInDB($id){
+		$query = $this->db->get_where('products',array('id'=>$id));
+		return $query->num_rows()==0?false:true;
 	}
 }

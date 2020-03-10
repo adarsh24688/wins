@@ -1,7 +1,6 @@
         <!--Sliders Section-->
         <section>
-            <div class="banner-1 cover-image sptb-2 sptb-tab bg-background2"   style="background: url('assets/images/banners/banner4.jpg') center center;">
-                <div class="header-text mb-0">
+            <div class="banner-1 cover-image sptb-2 sptb-tab bg-background2"   style="background: url('<?php echo base_url(); ?>assets/images/aboutUs-banner-img.jpg') center center;">                <div class="header-text mb-0">
                 
                 </div>
                 <!-- /header-text -->
@@ -24,10 +23,10 @@
                                             <?php $count=0;
                                             foreach($images as $image):
                                                 if($count==0){?>
-                                            <div class="carousel-item active" style="height:400px;"> <img src="<?php echo base_url('assets/images/products/'.$image->image_name);?>" alt="img"> </div>
+                                            <div class="carousel-item active"> <img src="<?php echo base_url('assets/images/products/'.$image->image_name);?>" alt="img"> </div>
                                             <?php 
                                             $count++;}else{?>
-                                            <div class="carousel-item" style="height:400px;"> <img src="<?php echo base_url('assets/images/products/'.$image->image_name);?>" alt="img"> </div>
+                                            <div class="carousel-item"> <img src="<?php echo base_url('assets/images/products/'.$image->image_name);?>" alt="img"> </div>
                                             <?php }endforeach; ?>
                                            <!--  <div class="carousel-item active carousel-item-left"> <img src="<?php echo base_url().$product->image;?>" alt="img"> </div>
                                             <div class="carousel-item carousel-item-next carousel-item-left"> <img src="<?php echo base_url();?>assets/images/products/2.png" alt="img"> </div>
@@ -132,14 +131,14 @@
                                         ?>
                                         <form  action="<?php echo base_url(); ?>index.php/Home/checkUserLogin/<?php echo $product->id?>" method="post">
                                             <div class="row mt-3">
-                                                <div class="col-lg-4">
+                                                <div class="col-lg-4 col-sm-4 col-md-4">
                                                     <div class="input-group">
                                                        <span class="input-group-btn">
                                                            <button type="button" class="btn btn-danger btn-number"  data-type="minus" data-field="quantity" id="minus">
                                                            <span>-</span>
                                                            </button>
                                                        </span>
-                                                       <input type="text" name="quantity" class="form-control input-number" value="<?php echo $quantity ?>" min="1" max="10">
+                                                       <input type="text" name="quantity" class="form-control input-number" value="<?php echo $quantity ?>" min="1" max="<?php echo (int)$product->ticket_count-(int)$product->sold_count; ?>">
                                                        <span class="input-group-btn">
                                                            <button type="button" class="btn btn-success btn-number" data-type="plus" data-field="quantity" id="plus">
                                                            <span>+</span>
@@ -147,7 +146,7 @@
                                                        </span>
                                                     </div>    
                                                 </div>
-                                                <div class="col-lg-4">
+                                                <div class="col-lg-4 sptb">
                                                     <?php if($product->sold_count === $product->ticket_count){?>
                                                     <button type="button" class="btn btn-danger btn-lg" disabled style="cursor:not-allowed">Sold Out</button><?php }else{?>
                                                     <button type="submit" class="btn btn-primary btn-lg">Buy Now</button>
@@ -246,3 +245,4 @@
         });
 
 </script>
+

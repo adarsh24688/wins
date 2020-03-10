@@ -18,9 +18,17 @@ class Home extends CI_Controller {
 	}
 
 	public function loadView($id){
+        if(!$this->ModelCommon->checkProductInDB($id)){
+            // $this->load->view('404');
+            show_404();
+        }
+
         if ($this->session->has_userdata('paymentStarted')) {
             $this->session->unset_userdata('paymentStarted');
         }
+
+
+
         $data['product'] = $this->ModelCommon->fetch_product_and_ticket($id);
 		 $data['images'] = $this->ModelCommon->fetch_images($id);
 		 $data['products'] = $this->ModelCommon->fetch_products_and_tickets();
@@ -89,10 +97,12 @@ class Home extends CI_Controller {
                 if($this->session->has_userdata('error')){
                     $this->session->unset_userdata('error');
                 }
+                $this->session->set_flashdata('registered','Registered Successfully');
                 redirect('index.php/Home/loadPage/login');
             }	
         }else{
             $data['states'] = $this->ModelCommon->getMultipleData('state');
+            $data['user_id'] = $this->session->userdata('user_id');
             $this->load->view('register',$data);
         }
 	}
@@ -160,6 +170,7 @@ class Home extends CI_Controller {
         elseif($page === 'winners'){
             $data['winners'] = $this->ModelCommon->getWinners();
         }elseif($page === 'register'){
+            $data['user_id'] = $this->session->userdata('user_id');
             $data['states'] = $this->ModelCommon->getMultipleData('state');
             $this->load->view($page,$data);
         }
@@ -210,6 +221,8 @@ class Home extends CI_Controller {
             }
             return;
         }
+
+
 
         if($this->authenticateUserLogin()){
             //userid from session
@@ -291,7 +304,10 @@ class Home extends CI_Controller {
                 </form>
                 ';
                 $data['html']=$html;
+                $data['user_id'] = $this->session->userdata('user_id');
+                $this->load->view('header',$data);
                 $this->load->view('razorpay',$data);
+                $this->load->view('footer');
         }else{
             redirect('index.php/Home');
         }
@@ -364,7 +380,6 @@ class Home extends CI_Controller {
 
             }
 
-            $token_string = $this->random_strings(5);
             $token_array = array();
             //here goes the logic if quantity is greater than 1
             //generating token for multiple quantity
@@ -372,11 +387,9 @@ class Home extends CI_Controller {
             // more than 1 
             //#token, #token+1, #token+2......
             for($i=0; $i<(int)$this->session->userdata('quantity');$i++){
-                if($i == 0){
-                    $token_array[] = '#'.$token_string;
-                }else{
-                    $token_array[] = '#'.$token_string.'+'.$i;
-                }
+                $value = $this->ModelCommon->fetchTicketValue();
+                $token_array[] = $value;
+                $this->ModelCommon->updateData('ticket_number',array('value'=> $value+1),array('id'=>1));
                 
             }
             
