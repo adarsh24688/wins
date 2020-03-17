@@ -7,8 +7,8 @@
                             <div class="col-lg-3 col-md-12">
                                 <h6>About</h6>
                                 <hr class="deep-purple  accent-2 mb-4 mt-0 d-inline-block mx-auto">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis exercitation ullamco laboris </p>
-                                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum .</p>
+                                <p>Pick-n-Win is an online question based reward winning platform that allows you to earn real prizes which includes branded goods, coupons, gift cards, and even cash prizes. 
+                                Each competition has a guaranteed winner with assured prize.</p>
                             </div>
                             <div class="col-lg-2 col-md-12">
                                 <h6>Our Quick Links</h6>
@@ -73,7 +73,7 @@
                 <div class="bg-dark-purple text-white p-0">
                     <div class="container">
                         <div class="row d-flex">
-                            <div class="col-lg-12 col-sm-12 mt-3 mb-3 text-center "> Copyright © 2019 <a href="#" class="fs-14 text-primary">Reallist</a>. Designed by <a href="#" class="fs-14 text-primary">Spruko</a> All rights reserved. </div>
+                            <div class="col-lg-12 col-sm-12 mt-3 mb-3 text-center "> Copyright © 2020 <a href="#" class="fs-14 text-primary">Pick-n-Win</a>. Designed by <a href="#" class="fs-14 text-primary">Spruko</a> All rights reserved. </div>
                         </div>
                     </div>
                 </div>

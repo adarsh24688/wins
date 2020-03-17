@@ -4,8 +4,8 @@
                 <div class="header-text mb-0">
                     <div class="container">
                         <div class="text-center text-white mb-7">
-                            <h1 class="mb-1">Win Everything </h1>
-                            <p>It is a long established fact that a reader will be distracted by the readable .</p>
+                            <h1 class="mb-1">Big Winnings on Stake </h1>
+                            <p>Enter our exclusive competition to earn some real prizes.</p>
                         </div>
                        <!--  <div class="row">
                             <div class="col-xl-10 col-lg-12 col-md-12 d-block mx-auto">
