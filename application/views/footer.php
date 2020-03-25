@@ -10,7 +10,7 @@
                                 <p>Pick-n-Win is an online question based reward winning platform that allows you to earn real prizes which includes branded goods, coupons, gift cards, and even cash prizes. 
                                 Each competition has a guaranteed winner with assured prize.</p>
                             </div>
-                            <div class="col-lg-2 col-md-12">
+                          <!--   <div class="col-lg-2 col-md-12">
                                 <h6>Our Quick Links</h6>
                                 <hr class="deep-purple text-primary accent-2 mb-4 mt-0 d-inline-block mx-auto">
                                 <ul class="list-unstyled mb-0">
@@ -21,15 +21,15 @@
                                     <li><a href="javascript:;">Blog</a></li>
                                     <li><a href="javascript:;">Terms</a></li>
                                 </ul>
-                            </div>
+                            </div> -->
                             <div class="col-lg-3 col-md-12">
                                 <h6>Contact</h6>
                                 <hr class="deep-purple  text-primary accent-2 mb-4 mt-0 d-inline-block mx-auto">
                                 <ul class="list-unstyled mb-0">
-                                    <li> <a href="#"><i class="fa fa-home mr-3 text-primary"></i> New York, NY 10012, US</a> </li>
-                                    <li> <a href="#"><i class="fa fa-envelope mr-3 text-primary"></i> info12323@example.com</a></li>
-                                    <li> <a href="#"><i class="fa fa-phone mr-3 text-primary"></i> + 01 234 567 88</a> </li>
-                                    <li> <a href="#"><i class="fa fa-print mr-3 text-primary"></i> + 01 234 567 89</a> </li>
+                                    <!-- <li> <a href="#"><i class="fa fa-home mr-3 text-primary"></i> New York, NY 10012, US</a> </li> -->
+                                    <li> <a href="#"><i class="fa fa-envelope mr-3 text-primary"></i> info@picknwin.com</a></li>
+                                    <!-- <li> <a href="#"><i class="fa fa-phone mr-3 text-primary"></i> + 01 234 567 88</a> </li>
+                                    <li> <a href="#"><i class="fa fa-print mr-3 text-primary"></i> + 01 234 567 89</a> </li> -->
                                 </ul>
                                 <ul class="list-unstyled list-inline mt-3">
                                     <li class="list-inline-item">

@@ -1,6 +1,10 @@
         <!--Sliders Section-->
         <section>
-            <div class="banner-1 cover-image sptb-2 sptb-tab bg-background2"   style="background: url('<?php echo base_url(); ?>assets/images/aboutUs-banner-img.jpg') center center;">                <div class="header-text mb-0">
+            <div class="banner-1 cover-image sptb-2 sptb-tab bg-background2"   style="background: url('<?php echo base_url(); ?>assets/images/c.png') center center;">               <div class="header-text mb-0">
+                <div class="text-center text-white mb-7">
+                            <h1 class="mb-1">Product description</h1>
+                            <p>Let'd Deep dive into it</p>
+                        </div>
                 
                 </div>
                 <!-- /header-text -->
@@ -65,26 +69,16 @@
                                 <div class="mb-4">
                                     <p><?php echo $product->description; ?></p>
                                 </div>
-                                <h4 class="mb-4">Specifications</h4>
+                                <h4 class="mb-4">How to Play</h4>
                                 <div class="row">
                                     <div class="col-xl-6 col-md-12">
                                         <ul class="list-unstyled widget-spec mb-0">
-                                            <li class=""> <i class="fa fa-bed text-muted w-5"></i> 2 BedRooms </li>
-                                            <li class=""> <i class="fa fa-bath text-muted w-5"></i> 2 BathRooms </li>
-                                            <li class=""> <i class="fa fa-life-ring text-muted w-5"></i> Unfurnished </li>
-                                            <li class=""> <i class="fa fa-car text-muted w-5"></i> 2 Car Parking </li>
+                                            <li class="">1.Choose a competition of your interest and pick one or more tickets.  </li>
+                                            <li class="">2.Complete the transaction for the entry fees and select your answer. </li>
+                                            <li class="">3.Sit back and relax until we draw the winner(s) and ship you with your rewards </li>
+                                           <!--  <li class=""> <i class="fa fa-car text-muted w-5"></i> 2 Car Parking </li>
                                             <li class=""> <i class="fa fa-globe text-muted w-5"></i> East East face </li>
-                                            <li class="mb-xl-0"> <i class="fa fa-pagelines text-muted w-5"></i> Garden </li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-xl-6 col-md-12">
-                                        <ul class="list-unstyled widget-spec mb-0">
-                                            <li class=""> <i class="fa fa-lock text-muted w-5"></i> Security </li>
-                                            <li class=""> <i class="fa fa-building-o text-muted w-5"></i> Lift </li>
-                                            <li class=""> <i class="fa fa-check text-muted w-5"></i> Swimming fool </li>
-                                            <li class=""> <i class="fa fa-gamepad text-muted w-5"></i> Play Area </li>
-                                            <li class=""> <i class="fa fa-futbol-o text-muted w-5"></i> football Court </li>
-                                            <li class="mb-0"> <i class="fa fa-trophy text-muted w-5"></i> Cricket Court </li>
+                                            <li class="mb-xl-0"> <i class="fa fa-pagelines text-muted w-5"></i> Garden </li> -->
                                         </ul>
                                     </div>
                                 </div>
@@ -98,7 +92,7 @@
                     <div class="col-xl-5 col-lg-5 col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">Posted By</h3> 
+                                <h3 class="card-title">Let's Play</h3> 
                             </div>
                             <div class="card-body  item-user">
                                 <div>

@@ -1,6 +1,10 @@
 <section>
-            <div class="banner-1 cover-image sptb-2 sptb-tab bg-background2"   style="background: url('<?php echo base_url(); ?>assets/images/aboutUs-banner-img.jpg') center center;">                <div class="header-text mb-0">
+            <div class="banner-1 cover-image sptb-2 sptb-tab bg-background2"   style="background: url('<?php echo base_url(); ?>assets/images/c.png') center center;">                <div class="header-text mb-0">
                 
+                        <div class="text-center text-white mb-7">
+                            <h1 class="mb-1">Want to Know Something About Us</h1>
+                            <p>Let'd Deep dive into it</p>
+                        </div>
                 </div>
                 <!-- /header-text -->
             </div>

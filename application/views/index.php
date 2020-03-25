@@ -1,6 +1,6 @@
         <!--Sliders Section-->
         <section>
-            <div class="banner-1 cover-image sptb-2 sptb-tab bg-background2"   style="background: url('<?php echo base_url(); ?>assets/images/aboutUs-banner-img.jpg') center center;">
+            <div class="banner-1 cover-image sptb-2 sptb-tab bg-background2"   style="background: url('<?php echo base_url(); ?>assets/images/c.png') center center;">
                 <div class="header-text mb-0">
                     <div class="container">
                         <div class="text-center text-white mb-7">
@@ -177,21 +177,21 @@
                         <div class="row text-center">
                             <div class="col-lg-4 col-md-6">
                                 <div class="counter-status md-mb-0">
-                                    <div class="counter-icon"> <i class="icon icon-people"></i> </div>
-                                    <h5>Contents</h5>
-                                    <h2 class="counter mb-0 font-weight-bold">34</h2> </div>
+                                    <div class="counter-icon"> <i class="fa fa-group"></i> </div>
+                                    <h5>Compititions</h5>
+                                    <h2 class="counter mb-0 font-weight-bold">10</h2> </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <div class="counter-status status-1 md-mb-0">
+                                    <div class="counter-icon text-warning"> <i class="fa fa-rocket"></i> </div>
+                                    <h5>Winners</h5>
+                                    <h2 class="counter mb-0 font-weight-bold">500</h2> </div>
                             </div>
                             <div class="col-lg-4 col-md-6">
                                 <div class="counter-status status-1 md-mb-0">
                                     <div class="counter-icon text-warning"> <i class="icon icon-rocket"></i> </div>
-                                    <h5>Winners</h5>
-                                    <h2 class="counter mb-0 font-weight-bold">32</h2> </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6">
-                                <div class="counter-status status-1 md-mb-0">
-                                    <div class="counter-icon text-warning"> <i class="icon icon-rocket"></i> </div>
-                                    <h5>Winners</h5>
-                                    <h2 class="counter mb-0 font-weight-bold">32</h2> </div>
+                                    <h5>Coming Compitions</h5>
+                                    <h2 class="counter mb-0 font-weight-bold">20</h2> </div>
                             </div>
                         </div>
                     </div>

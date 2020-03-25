@@ -1,6 +1,9 @@
 <section>
-            <div class="banner-1 cover-image sptb-2 sptb-tab bg-background2"   style="background: url('<?php echo base_url(); ?>assets/images/aboutUs-banner-img.jpg') center center;">                <div class="header-text mb-0">
-                
+            <div class="banner-1 cover-image sptb-2 sptb-tab bg-background2"   style="background: url('<?php echo base_url(); ?>assets/images/c.png') center center;">                <div class="header-text mb-0">
+                <div class="text-center text-white mb-7">
+                            <h1 class="mb-1">Lean How To Play</h1>
+                            <p>Let'd Deep dive into it</p>
+                        </div>
                 </div>
                 <!-- /header-text -->
             </div>
@@ -29,7 +32,7 @@
                 <div class="">
                     <div class="mb-lg-0 mb-4">
                         <div class="service-card text-center">
-                            <div class="bg-white icon-bg box-shadow icon-service  about"> <img src="<?php echo base_url(); ?>assets/images/products/about/1.png" alt="img"> </div>
+                            <div class="bg-white icon-bg box-shadow icon-service  about"> <img src="<?php echo base_url(); ?>assets/images/products/customer.png" alt="img"> </div>
                             <div class="servic-data mt-3">
                                 <h4 class="font-weight-semibold mb-2">Register</h4>
                                 <p class="text-muted mb-0">Fill in the joining form with some basic details to join Pick-n-Win</p>
@@ -42,7 +45,7 @@
                 <div class="">
                     <div class="mb-lg-0 mb-4">
                         <div class="service-card text-center">
-                            <div class="bg-white icon-bg box-shadow icon-service  about"> <img src="<?php echo base_url(); ?>assets/images/products/about/1.png" alt="img"> </div>
+                            <div class="bg-white icon-bg box-shadow icon-service  about"> <img src="<?php echo base_url(); ?>assets/images/products/worker.png" alt="img"> </div>
                             <div class="servic-data mt-3">
                                 <h4 class="font-weight-semibold mb-2">Select Competition</h4>
                                 <p class="text-muted mb-0">Choose a competition of your interest and pick one or more tickets.</p>
@@ -55,7 +58,7 @@
                 <div class="">
                     <div class="mb-sm-0 mb-4">
                         <div class="service-card text-center">
-                            <div class="bg-white icon-bg box-shadow icon-service  about"> <img src="<?php echo base_url(); ?>assets/images/products/about/1.png" alt="img"> </div>
+                            <div class="bg-white icon-bg box-shadow icon-service  about"> <img src="<?php echo base_url(); ?>assets/images/products/payment.png" alt="img"> </div>
                             <div class="servic-data mt-3">
                                 <h4 class="font-weight-semibold mb-2">Add Payment</h4>
                                 <p class="text-muted mb-0">Complete the transaction for the entry fees and select your answer.</p>
@@ -68,7 +71,7 @@
                 <div class="">
                     <div class="">
                         <div class="service-card text-center">
-                            <div class="bg-white icon-bg box-shadow icon-service  about"> <img src="<?php echo base_url(); ?>assets/images/products/about/1.png" alt="img"> </div>
+                            <div class="bg-white icon-bg box-shadow icon-service  about"> <img src="<?php echo base_url(); ?>assets/images/products/first.png" alt="img"> </div>
                             <div class="servic-data mt-3">
                                 <h4 class="font-weight-semibold mb-2">Get Rewards</h4>
                                 <p class="text-muted mb-0">Sit back and relax until we draw the winner(s) and ship you with your rewards.</p>

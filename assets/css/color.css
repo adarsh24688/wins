@@ -28,10 +28,11 @@
     background: #ed5151;
 }
   .bg-background-color:before {
-    background:linear-gradient(-225deg, rgba(74, 61, 184, 0.8) 48%, rgba(50, 228, 179, 0.8) 100%) !important;
+  	/*background: black;*/
+   /* background:linear-gradient(-225deg, rgba(74, 61, 184, 0.8) 48%, rgba(50, 228, 179, 0.8) 100%) !important;*/
 }
   .bg-dark-purple {
-    background-color: #0b0c19 !important;
+   /* background-color: #0b0c19 !important;*/
 }
  .btn-primary {
 	color: #fff;
@@ -882,7 +883,11 @@
 	background:linear-gradient(-225deg, rgba(74, 61, 184, 0.8) 48%, rgba(50, 228, 179, 0.8) 100%);
 }*/
  .bg-background-color:before {
-	background:linear-gradient(-225deg, rgba(74, 61, 184, 0.8) 48%, rgba(50, 228, 179, 0.8) 100%);
+	/*background:linear-gradient(-225deg, rgba(74, 61, 184, 0.8) 48%, rgba(50, 228, 179, 0.8) 100%);*/
+	background: #333333;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to bottom, #dd1818, #333333);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to bottom, #dd1818, #333333); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }
  .bg-background3:before {
 	background:linear-gradient(-225deg, rgb(74, 61, 184, 0.7) 48%, rgba(50, 228, 179, 0.7) 100%);
@@ -1013,7 +1018,7 @@
     border-top: 2px solid #ed5151;
 }
  .header-main i {
-    color: #ed5151;
+    color:#252525;
 }
  .item-card .item-card-desc:before {
     background: rgba(40, 35, 47, 0.5);
@@ -1191,7 +1196,7 @@
 	background: #ed5151;
 }
 .header-main i {
-  color: #ed5151;
+  color:#252525;
 }
 .pricingTable .title {
 	color: #ed5151;

@@ -6839,12 +6839,12 @@ a.bg-dark:focus, a.bg-dark:hover, button.bg-dark:focus, button.bg-dark:hover {
 .bg-white {
 	background-color: #fff!important;
 }
-.bg-dark-purple {
+/*.bg-dark-purple {
 	background-color: #413558!important;
-}
-a.bg-dark-purple:focus, a.bg-dark-purple:hover, button.bg-dark-purple:focus, button.bg-dark-purple:hover {
+}*/
+/*a.bg-dark-purple:focus, a.bg-dark-purple:hover, button.bg-dark-purple:focus, button.bg-dark-purple:hover {
 	background-color: #313031!important;
-}
+}*/
 .bg-white {
 	background-color: #fff!important;
 }
@@ -27247,7 +27247,7 @@ a.bg-dark:focus, a.bg-dark:hover, button.bg-dark:focus, button.bg-dark:hover {
 	background-color: #fff!important;
 }
 .bg-dark-purple {
-	background-color: #413558!important;
+	background-color: black!important;
 }
 a.bg-dark-purple:focus, a.bg-dark-purple:hover, button.bg-dark-purple:focus, button.bg-dark-purple:hover {
 	background-color: #313031!important;

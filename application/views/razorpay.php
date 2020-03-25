@@ -1,7 +1,7 @@
 
 <!--Sliders Section-->
         <section>
-            <div class="banner-1 cover-image sptb-2 sptb-tab bg-background2"   style="background: url('<?php echo base_url(); ?>assets/images/aboutUs-banner-img.jpg') center center;">
+            <div class="banner-1 cover-image sptb-2 sptb-tab bg-background2"   style="background: url('<?php echo base_url(); ?>assets/images/c.png') center center;">
                 <div class="header-text mb-0">
                     <div class="container">
                         <div class="text-center text-white mb-7">

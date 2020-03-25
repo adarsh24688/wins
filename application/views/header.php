@@ -87,12 +87,12 @@
                                 </div>
                                 <div class="clearfix">
                                     <ul class="contact">
-                                        <li class="mr-5 d-lg-none"> <a href="#" class="callnumber text-dark"><span><i class="fa fa-phone mr-1"></i>: +425 345 8765</span></a> </li>
+                                      <!--   <li class="mr-5 d-lg-none"> <a href="#" class="callnumber text-dark"><span><i class="fa fa-phone mr-1"></i>: +425 345 8765</span></a> </li> -->
                                         <li class="select-country mr-5">
                                          
 
                                         </li>
-                                        <li class="dropdown mr-5"> 
+                                  <!--       <li class="dropdown mr-5"> 
                                             <a href="#" class="text-dark" data-toggle="dropdown">
                                                 <span> Language <i class="fa fa-caret-down text-muted"></i></span> 
                                             </a>
@@ -100,7 +100,7 @@
                                         </li>
                                         <li class="dropdown"> <a href="#" class="text-dark" data-toggle="dropdown"><span>Currency <i class="fa fa-caret-down text-muted"></i></span></a>
                                             <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow"> <a href="#" class="dropdown-item"> USD </a> <a class="dropdown-item" href="#"> EUR </a> <a class="dropdown-item" href="#"> INR </a> <a href="#" class="dropdown-item"> GBP </a> </div>
-                                        </li>
+                                        </li> -->
                                     </ul>
                                 </div>
                             </div>
@@ -126,13 +126,15 @@
                 </div>
             </div>
             <!-- Duplex Houses Header -->
-            
+             <div class="horizontal-header clearfix ">
+                <div class="container"> <a id="horizontal-navtoggle" class="animated-arrow"><span></span></a> <span class="smllogo"><img src="<?php echo base_url(); ?>assets/images/brand/logo.png" width="120" alt=""></span> <a href="tel:245-6325-3256" class="callusbtn"><i aria-hidden="true"></i></a> </div>
+            </div>
             <!-- /Duplex Houses Header -->
             <div id="sticky-wrapper" class="sticky-wrapper" style="height: 64px;">
                 <div class="horizontal-main bg-dark-transparent clearfix" style="width: 1344px;">
                     <div class="horizontal-mainwrapper container clearfix">
                         <div class="desktoplogo">
-                            <a href="<?php echo base_url(); ?>"><img src="<?php echo base_url(); ?>assets/images/brand/logo1.png" alt=""></a>
+                            <a href="<?php echo base_url(); ?>"><img src="<?php echo base_url(); ?>assets/images/brand/lg.png" alt=""></a>
                         </div>
                         <div class="desktoplogo-1">
                             <a href="index.html"><img src="<?php echo base_url(); ?>assets/images/brand/logo1.png" alt=""></a>
