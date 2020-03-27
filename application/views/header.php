@@ -149,15 +149,13 @@
                                 <li aria-haspopup="true"><a href="<?php echo base_url('index.php/Home/loadPage/winners'); ?>"> Winners <span class="hmarrow"></span></a></li>
                                 <li aria-haspopup="true"><a href="<?php echo base_url('index.php/Home/loadPage/howToPlay'); ?>">How To Play </a></li>
                             </ul>
-<<<<<<< HEAD
-                            <ul class="mb-0">
+
+                            <!-- <ul class="mb-0">
                                 <li aria-haspopup="true" class="mt-3 d-none d-lg-block top-postbtn"> <span><a class="btn btn-secondary ad-post " href="ad-posts.html">Post Property Ad</a></span> </li>
-                            </ul>
-=======
-                           <!--  <ul class="mb-0">
+                            </ul>  -->                          <!--  <ul class="mb-0">
                                 <li aria-haspopup="true" class="mt-3 d-none d-lg-block top-postbtn"> <span><a class="btn btn-secondary ad-post " href="ad-posts.html">Post Property Ad</a></span> </li>
                             </ul> -->
->>>>>>> 1fc153a... add all products
+
                         </nav>
                         <!--Nav-->
                     </div>
