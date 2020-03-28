@@ -82,6 +82,19 @@
                                         </ul>
                                     </div>
                                 </div>
+                                 <h4 class="mb-4">How it works</h4>
+                                   <div class="row">
+                                    <div class="col-xl-6 col-md-12">
+                                        <ul class="list-unstyled widget-spec mb-0">
+                                            <li class="">1.Draw will be carried out by Random number generator </li>
+                                            <li class="">2.Draw will be live on Facebook and updated on Website</li>
+                                            <li class="">3.Sit back and relax until we draw the winner(s) and ship you with your rewards </li>
+                                           <!--  <li class=""> <i class="fa fa-car text-muted w-5"></i> 2 Car Parking </li>
+                                            <li class=""> <i class="fa fa-globe text-muted w-5"></i> East East face </li>
+                                            <li class="mb-xl-0"> <i class="fa fa-pagelines text-muted w-5"></i> Garden </li> -->
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <!--/Classified Description-->
