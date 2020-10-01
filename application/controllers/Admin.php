@@ -26,8 +26,8 @@ class Admin extends CI_Controller {
 	}
 
 	public function addProduct(){
-		// print_r($this->input->post('userfile[]'));
-		$this->load->library('upload');
+            // print_r($this->input->post('userfile[]'));
+	    $this->load->library('upload');
 	    $dataInfo = array();
 	    $files = $_FILES;
 	    $cpt = count($_FILES['userfile']['name']);
@@ -45,12 +45,12 @@ class Admin extends CI_Controller {
 	    }
 	    // print_r($dataInfo[1]['file_name']);
 	    // echo $dataInfo[0]['file_name'];
-	    $pdata = array(
+	    $productData = array(
 	    	'product_name' => $this->input->post('product_name'),
 	    	'image' => $dataInfo[0]['file_name'],
 	    	'description' => $this->input->post('description')
 	    );
-	    $pid = $this->ModelCommon->insertData('products',$pdata);
+	    $pid = $this->ModelCommon->insertData('products',$productData);
 	    $tdata = array(
 	    	'product_id' => $pid,
 	    	'ticket_price' => $this->input->post('ticket_price'),
@@ -84,7 +84,7 @@ class Admin extends CI_Controller {
 	    $this->session->set_flashdata('product_update_msg','Product Updated Successfully');
 	    redirect('index.php/Admin');
 	}
-
+	//to authenticate the user
 	public function authenticateLogin(){
 		if($this->session->has_userdata('admin_id')){
 			return true;
@@ -92,9 +92,9 @@ class Admin extends CI_Controller {
 			return false;
 		}
 	}
-
-	private function set_upload_options(){   
-	    //upload an image options
+	
+	//upload an image options
+	private function set_upload_options(){ 
 	    $config = array();
 	    $config['upload_path'] = './assets/images/products/';
 	    $config['allowed_types'] = 'gif|jpg|png';
